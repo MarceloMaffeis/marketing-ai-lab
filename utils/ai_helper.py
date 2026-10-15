@@ -378,6 +378,10 @@ def generate_chatbot_offline_reply(
     # Extrai e limpa as linhas da Base de Conhecimento (RAG)
     faq_lines = [line.strip().lstrip("•-*0123456789. ") for line in faq_conhecimento.split("\n") if line.strip()]
     
+    # 0. Transbordo para Atendente Humano / Especialista
+    if any(w in u_lower for w in ["humano", "atendente", "falar com pessoa", "especialista humano", "suporte humano", "pessoa real", "falar com alguem", "falar com alguém"]):
+        return f"Com certeza! Na **{empresa}**, valorizamos o contato próximo. Por favor, me informe seu **Nome e WhatsApp com DDD** que vou transferir seu atendimento diretamente para um de nossos especialistas humanos entrar em contato! 👤📞"
+
     # 1. TRATAMENTO DE RECUSAS E DESINTERESSE ("Não quero", "não tenho interesse", etc.)
     padroes_recusa = [
         "não quero", "nao quero", "nenhum desses", "nenhum desse", "não tenho interesse", "nao tenho interesse",

@@ -63,6 +63,7 @@ for day in range(60):
         })
 
 import os
+df = pd.DataFrame(rows)
 output_path = os.path.join(os.path.dirname(__file__), "campanhas_exemplo.csv")
 df.to_csv(output_path, index=False, encoding="utf-8-sig")
 print(f"Gerado com sucesso: {len(df)} registros em {output_path}.")
