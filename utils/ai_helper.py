@@ -20,6 +20,10 @@ def get_gemini_api_key():
         
     return os.getenv("GEMINI_API_KEY", "")
 
+def get_api_key():
+    """Alias retrocompatível para get_gemini_api_key."""
+    return get_gemini_api_key()
+
 def get_azure_config():
     """Recupera configurações para Microsoft Foundry / Azure OpenAI."""
     endpoint = st.session_state.get("azure_endpoint_input", "").strip()
